@@ -30,6 +30,23 @@ function loadGambar() {
   document.getElementById("hasil").innerHTML = "";
 }
 
+// Fungsi How to play
+function showHowToPlay() {
+  const popup = document.getElementById("popup");
+  const popupText = document.getElementById("popup-text");
+  const popupButtons = document.getElementById("popup-buttons");
+
+  popup.style.display = "flex";
+  popupText.innerHTML = `
+    📘 <b>Cara Bermain:</b><br><br>
+    1️⃣ Lihat gambar yang muncul.<br>
+    2️⃣ Ketik jawaban yang kamu pikir benar.<br>
+    3️⃣ Tekan tombol <b>Jawab</b> atau Enter.<br><br>
+    Selamat bermain!
+  `;
+  popupButtons.innerHTML = `<button onclick="closePopup()">Tutup</button>`;
+}
+
 // Fungsi yang dipanggil tombol Play
 function mulaiGame() {
   // mainkan musik menu saat tombol Play ditekan

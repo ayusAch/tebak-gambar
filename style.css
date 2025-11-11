@@ -1,0 +1,184 @@
+/* BODY & LAYOUT */
+body {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Tombol Musik di pojok atas */
+#music-btn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  padding: 12px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  backdrop-filter: blur(5px);
+  transition: 0.3s;
+}
+
+#music-btn:hover {
+  background: rgba(255,255,255,0.4);
+  transform: scale(1.1);
+}
+
+/* MENU & GAME CARD */
+.menu, .game-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  padding: 25px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  animation: fadeIn 0.8s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* HEADINGS */
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* IMAGE */
+.gambar {
+  width: 90%;
+  max-width: 300px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  object-fit: cover;
+  animation: pop 0.5s ease;
+  max-height: 200px;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* INPUT */
+input {
+  padding: 12px;
+  width: 80%;
+  max-width: 250px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+}
+
+/* BUTTONS */
+button {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: #ffda79;
+  color: #333;
+  transition: 0.3s;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background: #ffe9a9;
+  transform: scale(1.05);
+}
+
+/* HASIL */
+#hasil {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  min-height: 24px;
+}
+
+/* POPUP */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.popup-content {
+  background: white;
+  color: #333;
+  padding: 25px;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 320px;
+  text-align: center;
+  animation: zoom 0.3s ease;
+}
+
+@keyframes zoom {
+  0% { transform: scale(0.7); }
+  100% { transform: scale(1); }
+}
+
+.popup button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #ffda79;
+  color: #333;
+  transition: 0.3s;
+}
+
+.popup button:hover {
+  background: #ffe9a9;
+  transform: scale(1.05);
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 480px) {
+  .gambar {
+    max-height: 200px;
+  }
+
+  input, button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}

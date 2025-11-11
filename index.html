@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tebak Gambar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Audio Menu -->
+  <audio id="bgmMenu" loop>
+    <source src="audio/mainmenu.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Tombol Musik -->
+  <button id="music-btn" onclick="toggleMusic()">🔊</button>
+
+  <!-- Main Menu -->
+  <div class="menu" id="menu">
+    <h1>Tebak Gambar</h1>
+    <button class="play-btn" onclick="mulaiGame()">Mulai</button>
+  </div>
+
+  <!-- Game Card -->
+  <div class="game-card" id="game" style="display:none;">
+    <h1>Tebak Gambar</h1>
+    <img id="gambar" class="gambar" src="" alt="gambar" />
+
+    <input type="text" id="jawaban" placeholder="Tuliskan jawaban di sini..." />
+    <button id="btnJawab">Jawab</button>
+
+    <p id="hasil"></p>
+  </div>
+
+  <!-- Popup -->
+  <div id="popup" class="popup" style="display:none;">
+    <div class="popup-content">
+      <h2 id="popup-text"></h2>
+      <div id="popup-buttons"></div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

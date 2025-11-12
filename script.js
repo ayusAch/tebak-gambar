@@ -58,21 +58,14 @@ function loadGambar() {
   document.getElementById("gambar").src = data[index].gambar;
   document.getElementById("jawaban").value = "";
 
-  // Update indikator level & nyawa
+  // Update level info dan nyawa
   document.getElementById("level-info").textContent = `Level ${Math.floor(index / 2) + 1}`;
-  document.getElementById("nyawa").textContent = "❤️".repeat(nyawa);
+  document.getElementById("nyawa").textContent = "❤️❤️❤️"; // sementara tetap 3 nyawa default
 }
-
-
-// Fungsi yang dipanggil tombol Play
-
-  document.getElementById("hasil").textContent = "";
-
 
 // =============================
 // START GAME
 // =============================
-
 function mulaiGame() {
   if (musicOn) {
     bgmMenu.volume = 0.4;
@@ -86,8 +79,7 @@ function mulaiGame() {
 // KEMBALI KE MENU
 // =============================
 function kembaliHome() {
-  showScreen("game", "menu");
-  index = 0;
+  location.reload();
 }
 
 // =============================

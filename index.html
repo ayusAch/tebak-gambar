@@ -20,7 +20,6 @@
 
   <!-- Main Menu -->
   <div class="main-menu" id="menu">
-
     <div class="menu-grid">
       <img src="images/logo.png" alt="Logo Game" class="logo-game" />
 
@@ -31,9 +30,7 @@
   </div>
 
   <!-- Level Select -->
-
-  <!-- <div class="level-select screen" id="level-select" style="display:none;"> -->
-  <div class="level-select screen" id="level-select" style="display:none;" data-display="flex">
+  <div class="level-select screen" id="level-select" style="display:none;">
 
     <h1>Pilih Level Kamu!</h1>
     <div class="level-list">
@@ -59,7 +56,6 @@
 
 
   <!-- Game Card -->
-
   <div class="game-card" id="game" style="display:none;">
       <div class="status-bar">
         <div id="nyawa">❤️❤️❤️</div>
@@ -69,9 +65,11 @@
     <img id="gambar" class="gambar" src="" alt="gambar" />
 
     <div class="jawaban-container">
-      <input type="text" id="jawaban" placeholder="Tuliskan jawaban di sini..." />
+      <input type="text" id="jawaban" placeholder="Tuliskan jawaban di sini..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
       <button id="btnJawab">Jawab</button>
     </div>
+
+    <button class="back-btn" onclick="kembaliHome()">Petunjuk</button>
   </div>
 
   <!-- Popup -->

@@ -16,9 +16,19 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  
-  /* Lapisan overlay lembut agar teks tetap jelas */
   position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  
+  z-index: -1;
 }
 
 /* Tombol Musik di pojok atas */
@@ -276,4 +286,21 @@ button:hover {
 .back-btn:hover {
   background: rgba(255, 255, 255, 0.35);
   transform: scale(1.05);
+}
+/* Responsif untuk HP */
+@media (max-width: 600px) {
+  body {
+    background-attachment: scroll;
+    /* biar ringan di HP */
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .game-card,
+  .menu {
+    width: 95%;
+    padding: 18px;
+  }
 }

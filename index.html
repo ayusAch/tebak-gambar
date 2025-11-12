@@ -20,6 +20,7 @@
 
   <!-- Main Menu -->
   <div class="main-menu" id="menu">
+
     <div class="menu-grid">
       <img src="images/logo.png" alt="Logo Game" class="logo-game" />
 
@@ -30,7 +31,10 @@
   </div>
 
   <!-- Level Select -->
-  <div class="level-select screen" id="level-select" style="display:none;">
+
+  <!-- <div class="level-select screen" id="level-select" style="display:none;"> -->
+  <div class="level-select screen" id="level-select" style="display:none;" data-display="flex">
+
     <h1>Pilih Level Kamu!</h1>
     <div class="level-list">
       <!-- Level bisa kamu ubah jumlah dan tampilannya -->
@@ -55,6 +59,7 @@
 
 
   <!-- Game Card -->
+
   <div class="game-card" id="game" style="display:none;">
       <div class="status-bar">
         <div id="nyawa">❤️❤️❤️</div>
@@ -67,8 +72,6 @@
       <input type="text" id="jawaban" placeholder="Tuliskan jawaban di sini..." />
       <button id="btnJawab">Jawab</button>
     </div>
-
-    <button class="back-btn" onclick="kembaliHome()">Petunjuk</button>
   </div>
 
   <!-- Popup -->
@@ -78,6 +81,14 @@
       <div id="popup-buttons"></div>
     </div>
   </div>
+
+  <!-- Halaman Funfact -->
+  <div class="screen game-card" id="funfact" style="display:none;" data-display="flex">
+    <h1>Fakta Menarik!</h1>
+    <p id="funfact-text"></p>
+    <button class="back-btn" onclick="lanjutSoal()">Lanjut</button>
+  </div>
+
 
   <!-- Script -->
   <script src="script.js"></script>

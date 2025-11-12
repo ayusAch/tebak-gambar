@@ -101,8 +101,6 @@ function cekJawaban() {
     document.getElementById("hasil").textContent = "Jawaban salah, coba lagi!";
   }
 }
-
-
 // =============================
 // FUNFACT
 // =============================

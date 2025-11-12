@@ -1,4 +1,4 @@
-// Data jawaban dan funfact
+// Data gambar dan jawaban
 const data = [
   { gambar: "images/quis1.png", jawaban: "sate padang", funfact: "Sate Padang berasal dari Padang, Sumatera Barat, terkenal dengan kuah kental berwarna coklat dan rempah yang kaya." },
   { gambar: "images/quis2.png", jawaban: "kuda lumping", funfact: "Kuda Lumping adalah tari tradisional dari Jawa yang menampilkan penari menunggang kuda dari anyaman bambu." },
@@ -13,7 +13,6 @@ const data = [
 ];
 
 let index = 0;
-let nyawa = 3;
 const bgmMenu = document.getElementById("bgmMenu");
 let musicOn = true;
 
@@ -51,7 +50,6 @@ function showScreen(fromId, toId) {
   }, 400);
 }
 
-
 // =============================
 // LOAD GAMBAR
 // =============================
@@ -61,26 +59,27 @@ function loadGambar() {
 
   // Update level info dan nyawa
   document.getElementById("level-info").textContent = `Level ${Math.floor(index / 2) + 1}`;
-  document.getElementById("nyawa").textContent = "❤️".repeat(nyawa); 
+  document.getElementById("nyawa").textContent = "❤️❤️❤️"; // sementara tetap 3 nyawa default
 }
 
 // =============================
 // START GAME
 // =============================
 function mulaiGame() {
+  // mainkan musik menu saat tombol Play ditekan
   if (musicOn) {
     bgmMenu.volume = 0.4;
     bgmMenu.play();
   }
+
   showScreen("menu", "level-select");
   loadGambar();
 }
 
-// =============================
-// KEMBALI KE MENU
-// =============================
-function kembaliHome() {
-  location.reload();
+// Kembali ke menu dengan animasi
+function kembaliHomeAnim() {
+  showScreen("game", "menu");
+  index = 0;
 }
 
 // =============================
@@ -90,72 +89,20 @@ function cekJawaban() {
   let input = document.getElementById("jawaban").value.toLowerCase().trim();
 
   // Hapus spasi ganda dan karakter tak terlihat
-  input = input.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // hilangkan aksen
-  input = input.replace(/\s+/g, " "); // ganti spasi ganda dengan satu spasi
-  input = input.replace(/\u00A0/g, " "); // ubah non-breaking space jadi spasi biasa
+  input = input.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
+  input = input.replace(/\s+/g, " "); 
+  input = input.replace(/\u00A0/g, " "); 
 
   let benar = data[index].jawaban.toLowerCase().trim();
 
   if (input === benar) {
     tampilFunfact();
   } else {
-    nyawa--;
-    document.getElementById("nyawa").textContent = "❤️".repeat(nyawa);
-
-    if (nyawa === 0) {
-      showPopup("gameover");
-    }else{
-      showPopup("salah");
-    }
-  }
-}
-// =============================
-// FUNFACT
-// =============================
-function tampilFunfact() {
-  const fact = data[index].funfact || "Tidak ada fakta menarik untuk soal ini.";
-  document.getElementById("funfact-text").textContent = fact;
-  showScreen("game", "funfact");
-}
-
-// =============================
-// LANJUT KE SOAL BERIKUTNYA
-// =============================
-function lanjutSoal() {
-  index++;
-  if (index < data.length) {
-    showScreen("funfact", "game");
-    loadGambar();
-  } else {
-    selesai();
+    showPopup("salah");
   }
 }
 
-// =============================
-// SELESAI
-// =============================
-function selesai() {
-  alert("Semua pertanyaan selesai!");
-  location.reload();
-}
-
-// =============================
-// EVENT LISTENER
-// =============================
-document.getElementById("btnJawab").addEventListener("click", cekJawaban);
-document.getElementById("jawaban").addEventListener("keypress", function(e) {
-  if (e.key === 'Enter') cekJawaban();
-});
-
-// =============================
-// PILIH LEVEL
-// =============================
-function pilihLevel(level) {
-  console.log("Level dipilih:", level);
-  showScreen("level-select", "game");
-  index = (level - 1) * 2; // contoh: tiap level 2 soal
-  loadGambar();
-}
+// Fungsi menampilkan popup
 function showPopup(status) {
   const popup = document.getElementById("popup");
   const popupText = document.getElementById("popup-text");
@@ -169,20 +116,15 @@ function showPopup(status) {
       <button onclick="lanjut()">Lanjutkan</button>
       <button onclick="kembaliHome()">Kembali</button>
     `;
-  } else if (status === "salah") {
+  } else {
     popupText.innerHTML = "Jawaban Salah!";
     popupButtons.innerHTML = `
       <button onclick="ulangi()">Ulangi</button>
       <button onclick="kembaliHome()">Kembali</button>
     `;
-  } else if (status === "gameover") {
-    popupText.innerHTML = "Game Over! Nyawamu habis 😢";
-    popupButtons.innerHTML = `
-      <button onclick="ulangGame()">Ulangi Game</button>
-      <button onclick="kembaliHome()">Kembali ke Menu</button>
-    `;
   }
 }
+
 function closePopup() {
   document.getElementById("popup").style.display = "none";
 }
@@ -191,9 +133,77 @@ function ulangi() {
   closePopup();
   document.getElementById("jawaban").focus();
 }
-function ulangGame() {
+
+function lanjut() {
   closePopup();
-  nyawa = 3;
-  index = 0;
+  index++;
+  if (index < data.length) {
+    loadGambar();
+  } else {
+    selesai();
+    // Semua gambar selesai, tampilkan popup
+    const popup = document.getElementById("popup");
+    const popupText = document.getElementById("popup-text");
+    const popupButtons = document.getElementById("popup-buttons");
+
+    popupText.innerHTML = "Selamat kamu menang!";
+    popupButtons.innerHTML = `<button onclick="kembaliHome()">Kembali</button>`;
+    popup.style.display = "flex";
+  }
+}
+
+function kembaliHome() {
+  location.reload();
+}
+
+// Hubungkan tombol Jawab
+document.getElementById("btnJawab").addEventListener("click", cekJawaban);
+
+// Optional: tekan Enter untuk submit jawaban
+document.getElementById("jawaban").addEventListener("keypress", function(e) {
+  if (e.key === 'Enter') {
+    cekJawaban();
+  }
+});
+// Fungsi pilih level
+function pilihLevel(level) {
+  console.log("Level dipilih:", level);
+  showScreen("level-select", "game");
+  index = (level - 1) * 2; // contoh: tiap level punya 2 soal
   loadGambar();
+}
+// =============================
+// SELESAI
+// =============================
+function selesai() {
+  alert("Semua pertanyaan selesai!");
+  location.reload();
+}
+
+// =============================
+// EVENT LISTENER
+// =============================
+document.getElementById("btnJawab").addEventListener("click", cekJawaban);
+document.getElementById("jawaban").addEventListener("keypress", function (e) {
+  if (e.key === 'Enter') cekJawaban();
+});
+// =============================
+// LANJUT KE SOAL BERIKUTNYA
+// =============================
+function lanjutSoal() {
+  index++;
+  if (index < data.length) {
+    showScreen("funfact", "game");
+    loadGambar();
+  } else {
+    selesai();
+  }
+}
+// =============================
+// FUNFACT
+// =============================
+function tampilFunfact() {
+  const fact = data[index].funfact || "Tidak ada fakta menarik untuk soal ini.";
+  document.getElementById("funfact-text").textContent = fact;
+  showScreen("game", "funfact");
 }

@@ -38,6 +38,7 @@ function showScreen(fromId, toId) {
 
   if (toId === "level-select") {
     updateLevelDisplay();
+    animateLevelButtons();
   }
 
   const from = document.getElementById(fromId);
@@ -272,4 +273,27 @@ function resetProgress() {
     updateLevelDisplay();
     alert("Progress berhasil di-reset! Semua level terkunci kecuali Level 1.");
   }
+}
+
+function animateLevelButtons() {
+  const backBtn = document.querySelector(".level-select .back-btn");
+  const resetBtn = document.querySelector(".level-select .reset-btn");
+
+  // Sembunyikan dulu tombolnya
+  backBtn.style.opacity = "0";
+  resetBtn.style.opacity = "0";
+
+  // Hitung waktu total animasi level-item (terakhir = 1s)
+  const totalDelay = 2000; // dalam ms (1.2 detik)
+
+  setTimeout(() => {
+    backBtn.style.transition = "opacity 0.5s ease, transform 0.3s ease";
+    resetBtn.style.transition = "opacity 0.5s ease, transform 0.3s ease";
+
+    backBtn.style.opacity = "1";
+    resetBtn.style.opacity = "1";
+
+    backBtn.style.transform = "translateY(0)";
+    resetBtn.style.transform = "translateY(0)";
+  }, totalDelay);
 }

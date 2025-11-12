@@ -210,3 +210,61 @@ button:hover {
     font-size: 24px;
   }
 }
+
+/* Background Animasi */
+.animated-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, #6a11cb, #2575fc, #ff7eb3, #f3c623);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 🌟 Transisi antar layar */
+.screen {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  display: none;
+}
+
+.screen.active {
+  opacity: 1;
+  transform: translateY(0);
+  display: flex;
+}
+
+.fade-out {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* Tombol tambahan */
+.back-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 14px;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.05);
+}

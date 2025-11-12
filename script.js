@@ -8,7 +8,6 @@ const data = [
 ];
 
 let index = 0;
-
 const bgmMenu = document.getElementById("bgmMenu");
 let musicOn = true;
 
@@ -21,6 +20,20 @@ function toggleMusic() {
     bgmMenu.play();
     musicOn = true;
   }
+}
+
+// Transisi antar layar
+function showScreen(fromId, toId) {
+  const from = document.getElementById(fromId);
+  const to = document.getElementById(toId);
+
+  from.classList.remove("active");
+  from.classList.add("fade-out");
+  setTimeout(() => {
+    from.style.display = "none";
+    to.style.display = "flex";
+    to.classList.add("active");
+  }, 400);
 }
 
 // Fungsi untuk menampilkan gambar
@@ -55,10 +68,14 @@ function mulaiGame() {
     bgmMenu.play();
   }
 
-  document.getElementById("menu").style.display = "none";
-  document.getElementById("game").style.display = "flex";
-
+  showScreen("menu", "game");
   loadGambar();
+}
+
+// Kembali ke menu dengan animasi
+function kembaliHomeAnim() {
+  showScreen("game", "menu");
+  index = 0;
 }
 
 // Fungsi cek jawaban

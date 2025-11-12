@@ -18,7 +18,7 @@
   <button id="music-btn" onclick="toggleMusic()">🔊</button>
 
 <!-- Main Menu -->
-<div class="main-menu" id="menu">
+<div class="main-menu" id="menu" data-display="grid">
   <div class="menu-grid">
     <img src="images/logo.png" alt="Logo Game" class="logo-game" />
 
@@ -29,7 +29,7 @@
 </div>
 
 <!-- Level Select -->
-<div class="level-select screen" id="level-select" style="display:none;">
+<div class="level-select screen" id="level-select" style="display:none;" data-display="flex">
   <h1>Pilih Level Kamu!</h1>
   <div class="level-list">
     <!-- Level bisa kamu ubah jumlah dan tampilannya -->
@@ -54,7 +54,7 @@
 
 
   <!-- Game Card -->
-  <div class="game-card" id="game" style="display:none;">
+  <div class="game-card" id="game" style="display:none;" data-display="flex">
     <h1>Tebak Gambar</h1>
     <img id="gambar" class="gambar" src="" alt="gambar" />
     <input type="text" id="jawaban" placeholder="Tuliskan jawaban di sini..." />
@@ -70,6 +70,14 @@
       <div id="popup-buttons"></div>
     </div>
   </div>
+
+  <!-- Halaman Funfact -->
+<div class="screen game-card" id="funfact" style="display:none;" data-display="flex">
+  <h1>Fakta Menarik!</h1>
+  <p id="funfact-text"></p>
+  <button class="back-btn" onclick="lanjutSoal()">Lanjut</button>
+</div>
+
 
   <!-- Script -->
   <script src="script.js"></script>

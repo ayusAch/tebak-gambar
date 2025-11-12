@@ -9,9 +9,6 @@
 
 <body>
 
-  <!-- Background animasi -->
-  <!-- <div class="animated-bg"></div> -->
-
   <!-- Audio Menu -->
   <audio id="bgmMenu" loop>
     <source src="audio/mainmenu.mp3" type="audio/mp3">
@@ -20,12 +17,41 @@
   <!-- Tombol Musik -->
   <button id="music-btn" onclick="toggleMusic()">🔊</button>
 
-  <!-- Main Menu -->
-  <div class="menu screen active" id="menu">
-    <h1 class="title">Tebak Gambar</h1>
-    <button class="play-btn" onclick="mulaiGame()">Play</button>
-    <button class="how-btn" onclick="showHowToPlay()">How to Play</button>
+<!-- Main Menu -->
+<div class="main-menu" id="menu">
+  <div class="menu-grid">
+    <img src="images/logo.png" alt="Logo Game" class="logo-game" />
+
+    <div class="menu-buttons">
+      <img src="images/btn-play.png" alt="Play" class="menu-btn" onclick="mulaiGame()" />
+    </div>
   </div>
+</div>
+
+<!-- Level Select -->
+<div class="level-select screen" id="level-select" style="display:none;">
+  <h1>Pilih Level Kamu!</h1>
+  <div class="level-list">
+    <!-- Level bisa kamu ubah jumlah dan tampilannya -->
+    <div class="level-item" onclick="pilihLevel(1)">
+      <span class="stars">⭐☆☆☆☆</span>
+    </div>
+    <div class="level-item" onclick="pilihLevel(2)">
+      <span class="stars">⭐⭐☆☆☆</span>
+    </div>
+    <div class="level-item" onclick="pilihLevel(3)">
+      <span class="stars">⭐⭐⭐☆☆</span>
+    </div>
+    <div class="level-item" onclick="pilihLevel(4)">
+      <span class="stars">⭐⭐⭐⭐☆</span>
+    </div>
+    <div class="level-item" onclick="pilihLevel(5)">
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+    </div>
+  </div>
+  <button class="back-btn" onclick="kembaliHome()">⬅ Kembali</button>
+</div>
+
 
   <!-- Game Card -->
   <div class="game-card" id="game" style="display:none;">
@@ -34,7 +60,7 @@
     <input type="text" id="jawaban" placeholder="Tuliskan jawaban di sini..." />
     <button id="btnJawab">Jawab</button>
     <p id="hasil"></p>
-    <button class="back-btn" onclick="kembaliHomeAnim()">⬅ Kembali</button>
+    <button class="back-btn" onclick="kembaliHome()">Petunjuk</button>
   </div>
 
   <!-- Popup -->

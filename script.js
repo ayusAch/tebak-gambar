@@ -34,10 +34,23 @@ function showScreen(fromId, toId) {
 
   from.classList.remove("active");
   from.classList.add("fade-out");
+
   setTimeout(() => {
     from.style.display = "none";
+    from.classList.remove("fade-out");
     to.style.display = "flex";
     to.classList.add("active");
+    // Jika menuju level select, reset animasi item
+    if (toId === "level-select") {
+      document.querySelectorAll(".level-item").forEach((item) => {
+        item.style.opacity = "0";
+        item.style.transform = "translateY(20px)";
+        // trigger ulang animasi
+        setTimeout(() => {
+          item.style.animation = "fadeInItem 0.5s ease forwards";
+        }, 100);
+      });
+    }
   }, 400);
 }
 
@@ -48,23 +61,6 @@ function loadGambar() {
   document.getElementById("hasil").innerHTML = "";
 }
 
-// Fungsi How to play
-function showHowToPlay() {
-  const popup = document.getElementById("popup");
-  const popupText = document.getElementById("popup-text");
-  const popupButtons = document.getElementById("popup-buttons");
-
-  popup.style.display = "flex";
-  popupText.innerHTML = `
-    📘 <b>Cara Bermain:</b><br><br>
-    1️⃣ Lihat gambar yang muncul.<br>
-    2️⃣ Ketik jawaban yang kamu pikir benar.<br>
-    3️⃣ Tekan tombol <b>Jawab</b> atau Enter.<br><br>
-    Selamat bermain!
-  `;
-  popupButtons.innerHTML = `<button onclick="closePopup()">Tutup</button>`;
-}
-
 // Fungsi yang dipanggil tombol Play
 function mulaiGame() {
   // mainkan musik menu saat tombol Play ditekan
@@ -73,7 +69,7 @@ function mulaiGame() {
     bgmMenu.play();
   }
 
-  showScreen("menu", "game");
+  showScreen("menu", "level-select");
   loadGambar();
 }
 
@@ -158,3 +154,11 @@ document.getElementById("jawaban").addEventListener("keypress", function(e) {
     cekJawaban();
   }
 });
+// Fungsi pilih level
+function pilihLevel(level) {
+  console.log("Level dipilih:", level);
+  // nanti bisa dikembangkan untuk tiap level berbeda
+  showScreen("level-select", "game");
+  index = (level - 1) * 2; // contoh: tiap level punya 2 soal
+  loadGambar();
+}

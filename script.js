@@ -1,10 +1,15 @@
 // Data gambar dan jawaban
 const data = [
-  { gambar: "images/gambar1.jpg", jawaban: "" },
-  { gambar: "images/gambar2.jpg", jawaban: "" },
-  { gambar: "images/gambar3.jpg", jawaban: "" },
-  { gambar: "images/gambar4.jpg", jawaban: "" },
-  { gambar: "images/gambar5.jpg", jawaban: "" }
+  { gambar: "images/quis1.png", jawaban: "" },
+  { gambar: "images/quis2.png", jawaban: "" },
+  { gambar: "images/quis3.png", jawaban: "" },
+  { gambar: "images/quis4.png", jawaban: "" },
+  { gambar: "images/quis5.png", jawaban: "" },
+  { gambar: "images/quis6.png", jawaban: "" },
+  { gambar: "images/quis7.png", jawaban: "" },
+  { gambar: "images/quis8.png", jawaban: "" },
+  { gambar: "images/quis9.png", jawaban: "" },
+  { gambar: "images/quis10.png", jawaban: "" }
 ];
 
 let index = 0;

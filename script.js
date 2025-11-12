@@ -140,7 +140,6 @@ function lanjut() {
   }
 }
 
-
 function kembaliHome() {
   location.reload();
 }

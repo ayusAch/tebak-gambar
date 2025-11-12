@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,47 +18,48 @@
   <!-- Tombol Musik -->
   <button id="music-btn" onclick="toggleMusic()">🔊</button>
 
-<!-- Main Menu -->
-<div class="main-menu" id="menu" data-display="grid">
-  <div class="menu-grid">
-    <img src="images/logo.png" alt="Logo Game" class="logo-game" />
+  <!-- Main Menu -->
+  <div class="main-menu" id="menu" data-display="grid">
+    <div class="menu-grid">
+      <img src="images/logo.png" alt="Logo Game" class="logo-game" />
 
-    <div class="menu-buttons">
-      <img src="images/btn-play.png" alt="Play" class="menu-btn" onclick="mulaiGame()" />
+      <div class="menu-buttons">
+        <img src="images/btn-play.png" alt="Play" class="menu-btn" onclick="mulaiGame()" />
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Level Select -->
-<div class="level-select screen" id="level-select" style="display:none;" data-display="flex">
-  <h1>Pilih Level Kamu!</h1>
-  <div class="level-list">
-    <!-- Level bisa kamu ubah jumlah dan tampilannya -->
-    <div class="level-item" onclick="pilihLevel(1)">
-      <span class="stars">⭐☆☆☆☆</span>
+  <!-- Level Select -->
+  <div class="level-select screen" id="level-select" style="display:none;" data-display="flex">
+    <h1>Pilih Level Kamu!</h1>
+    <div class="level-list">
+      <!-- Level bisa kamu ubah jumlah dan tampilannya -->
+      <div class="level-item" onclick="pilihLevel(1)">
+        <span class="stars">⭐☆☆☆☆</span>
+      </div>
+      <div class="level-item" onclick="pilihLevel(2)">
+        <span class="stars">⭐⭐☆☆☆</span>
+      </div>
+      <div class="level-item" onclick="pilihLevel(3)">
+        <span class="stars">⭐⭐⭐☆☆</span>
+      </div>
+      <div class="level-item" onclick="pilihLevel(4)">
+        <span class="stars">⭐⭐⭐⭐☆</span>
+      </div>
+      <div class="level-item" onclick="pilihLevel(5)">
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+      </div>
     </div>
-    <div class="level-item" onclick="pilihLevel(2)">
-      <span class="stars">⭐⭐☆☆☆</span>
-    </div>
-    <div class="level-item" onclick="pilihLevel(3)">
-      <span class="stars">⭐⭐⭐☆☆</span>
-    </div>
-    <div class="level-item" onclick="pilihLevel(4)">
-      <span class="stars">⭐⭐⭐⭐☆</span>
-    </div>
-    <div class="level-item" onclick="pilihLevel(5)">
-      <span class="stars">⭐⭐⭐⭐⭐</span>
-    </div>
+    <button class="back-btn" onclick="kembaliHome()">⬅ Kembali</button>
   </div>
-  <button class="back-btn" onclick="kembaliHome()">⬅ Kembali</button>
-</div>
 
 
   <!-- Game Card -->
   <div class="game-card" id="game" style="display:none;" data-display="flex">
     <h1>Tebak Gambar</h1>
     <img id="gambar" class="gambar" src="" alt="gambar" />
-    <input type="text" id="jawaban" placeholder="Tuliskan jawaban di sini..." />
+    <input type="text" id="jawaban" placeholder="Tuliskan jawaban di sini..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
     <button id="btnJawab">Jawab</button>
     <p id="hasil"></p>
     <button class="back-btn" onclick="kembaliHome()">Petunjuk</button>
@@ -72,14 +74,15 @@
   </div>
 
   <!-- Halaman Funfact -->
-<div class="screen game-card" id="funfact" style="display:none;" data-display="flex">
-  <h1>Fakta Menarik!</h1>
-  <p id="funfact-text"></p>
-  <button class="back-btn" onclick="lanjutSoal()">Lanjut</button>
-</div>
+  <div class="screen game-card" id="funfact" style="display:none;" data-display="flex">
+    <h1>Fakta Menarik!</h1>
+    <p id="funfact-text"></p>
+    <button class="back-btn" onclick="lanjutSoal()">Lanjut</button>
+  </div>
 
 
   <!-- Script -->
   <script src="script.js"></script>
 </body>
+
 </html>

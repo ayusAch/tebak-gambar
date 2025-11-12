@@ -89,7 +89,13 @@ function kembaliHome() {
 // =============================
 function cekJawaban() {
   let input = document.getElementById("jawaban").value.toLowerCase().trim();
-  let benar = data[index].jawaban.toLowerCase();
+
+  // Hapus spasi ganda dan karakter tak terlihat
+  input = input.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // hilangkan aksen
+  input = input.replace(/\s+/g, " "); // ganti spasi ganda dengan satu spasi
+  input = input.replace(/\u00A0/g, " "); // ubah non-breaking space jadi spasi biasa
+
+  let benar = data[index].jawaban.toLowerCase().trim();
 
   if (input === benar) {
     tampilFunfact();
@@ -97,6 +103,7 @@ function cekJawaban() {
     document.getElementById("hasil").textContent = "Jawaban salah, coba lagi!";
   }
 }
+
 
 // =============================
 // FUNFACT

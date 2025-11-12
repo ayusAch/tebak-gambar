@@ -14,6 +14,7 @@ const data = [
 
 let index = 0;
 let nyawa = 3;
+let maxLevelUnlocked = parseInt(localStorage.getItem("maxLevelUnlocked")) || 1;
 const bgmMenu = document.getElementById("bgmMenu");
 let musicOn = true;
 
@@ -34,6 +35,11 @@ function toggleMusic() {
 // TRANSISI ANTAR LAYAR
 // =============================
 function showScreen(fromId, toId) {
+
+  if (toId === "level-select") {
+    updateLevelDisplay();
+  }
+
   const from = document.getElementById(fromId);
   const to = document.getElementById(toId);
 
@@ -73,7 +79,7 @@ function mulaiGame() {
     bgmMenu.play();
   }
   showScreen("menu", "level-select");
-  loadGambar();
+  updateLevelDisplay();
 }
 
 // =============================
@@ -122,14 +128,33 @@ function tampilFunfact() {
 // LANJUT KE SOAL BERIKUTNYA
 // =============================
 function lanjutSoal() {
+  const totalPerLevel = 2; // jumlah soal per level
+  const currentLevel = Math.floor(index / totalPerLevel) + 1;
   index++;
-  if (index < data.length) {
+
+  // Cek apakah masih ada soal di level ini
+  if (index < currentLevel * totalPerLevel && index < data.length) {
     showScreen("funfact", "game");
     loadGambar();
   } else {
-    selesai();
+    bukaLevelBerikutnya(currentLevel);
+    showPopup("selesai");
   }
 }
+
+
+// =============================
+// FUNGSI BUKA LEVEL BERIKUTNYA
+// =============================
+function bukaLevelBerikutnya(currentLevel) {
+  const nextLevel = currentLevel + 1;
+  if (nextLevel > maxLevelUnlocked && nextLevel <= 5) {
+    maxLevelUnlocked = nextLevel;
+    localStorage.setItem("maxLevelUnlocked", maxLevelUnlocked);
+  }
+}
+
+
 
 // =============================
 // SELESAI
@@ -151,11 +176,21 @@ document.getElementById("jawaban").addEventListener("keypress", function(e) {
 // PILIH LEVEL
 // =============================
 function pilihLevel(level) {
+  if (level > maxLevelUnlocked) {
+    alert("Level ini masih terkunci 🔒\nSelesaikan level sebelumnya dulu!");
+    return;
+  }
+
   console.log("Level dipilih:", level);
   showScreen("level-select", "game");
-  index = (level - 1) * 2; // contoh: tiap level 2 soal
+  index = (level - 1) * 2; // tiap level punya 2 soal (contoh)
   loadGambar();
 }
+
+
+// =============================
+// POPUP
+// =============================
 function showPopup(status) {
   const popup = document.getElementById("popup");
   const popupText = document.getElementById("popup-text");
@@ -179,9 +214,15 @@ function showPopup(status) {
     popupText.innerHTML = "Game Over! Nyawamu habis 😢";
     popupButtons.innerHTML = `
       <button onclick="ulangGame()">Ulangi Game</button>
-      <button onclick="kembaliHome()">Kembali ke Menu</button>
+      <button onclick="kembaliHome()">Kembali</button>
     `;
+  } else if (status === "selesai") {
+    popupText.innerHTML = "Selamat! Kamu menyelesaikan level ini 🎉";
+    popupButtons.innerHTML = `
+    <button onclick="kembaliLevelSelect()">Kembali ke Level</button>
+  `;
   }
+
 }
 function closePopup() {
   document.getElementById("popup").style.display = "none";
@@ -196,4 +237,39 @@ function ulangGame() {
   nyawa = 3;
   index = 0;
   loadGambar();
+}
+// =============================
+// LOGIC BUKA LEVEL
+// =============================
+function updateLevelDisplay() {
+  const items = document.querySelectorAll(".level-item");
+  items.forEach((item, i) => {
+    const level = i + 1;
+    if (level <= maxLevelUnlocked) {
+      item.style.opacity = "1";
+      item.style.pointerEvents = "auto";
+      item.innerHTML = `<span class="stars">⭐ Level ${level}</span>`;
+    } else {
+      item.style.opacity = "0.5";
+      item.style.pointerEvents = "none";
+      item.innerHTML = `<span class="stars">🔒 Level ${level}</span>`;
+    }
+  });
+}
+
+function kembaliLevelSelect() {
+  closePopup();
+  showScreen("funfact", "level-select");
+  updateLevelDisplay();
+}
+
+document.addEventListener("DOMContentLoaded", updateLevelDisplay);
+
+function resetProgress() {
+  if (confirm("Apakah kamu yakin ingin mengulang dari awal?\nSemua progress level akan dihapus.")) {
+    localStorage.removeItem("maxLevelUnlocked");
+    maxLevelUnlocked = 1;
+    updateLevelDisplay();
+    alert("Progress berhasil di-reset! Semua level terkunci kecuali Level 1.");
+  }
 }

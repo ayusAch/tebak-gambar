@@ -58,8 +58,12 @@ function showScreen(fromId, toId) {
 function loadGambar() {
   document.getElementById("gambar").src = data[index].gambar;
   document.getElementById("jawaban").value = "";
-  document.getElementById("hasil").innerHTML = "";
+
+  // Update level info dan nyawa
+  document.getElementById("level-info").textContent = `Level ${Math.floor(index / 2) + 1}`;
+  document.getElementById("nyawa").textContent = "❤️❤️❤️"; // sementara tetap 3 nyawa default
 }
+
 
 // Fungsi yang dipanggil tombol Play
 function mulaiGame() {

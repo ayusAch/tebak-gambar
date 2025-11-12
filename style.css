@@ -10,6 +10,15 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
+
+  /* Gambar background */
+  background-image: url('images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  
+  /* Lapisan overlay lembut agar teks tetap jelas */
+  position: relative;
 }
 
 /* Tombol Musik di pojok atas */

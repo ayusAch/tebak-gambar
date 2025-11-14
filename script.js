@@ -61,7 +61,6 @@ function toggleMusic() {
     musicOn = true;
   }
 }
-
 // =============================
 // TRANSISI ANTAR LAYAR
 // =============================
@@ -88,8 +87,6 @@ function showScreen(fromId, toId) {
     to.classList.add("active");
   }, 400);
 }
-
-
 // =============================
 // LOAD GAMBAR
 // =============================
@@ -101,7 +98,6 @@ function loadGambar() {
   document.getElementById("level-info").textContent = `Level ${index + 1}`;
   document.getElementById("nyawa").textContent = "❤️".repeat(nyawa); 
 }
-
 // =============================
 // START GAME
 // =============================
@@ -187,9 +183,6 @@ function bukaLevelBerikutnya(currentLevel) {
     localStorage.setItem("maxLevelUnlocked", maxLevelUnlocked);
   }
 }
-
-
-
 // =============================
 // SELESAI
 // =============================
@@ -197,7 +190,6 @@ function selesai() {
   alert("Semua pertanyaan selesai!");
   location.reload();
 }
-
 // =============================
 // EVENT LISTENER
 // =============================
@@ -220,8 +212,6 @@ function pilihLevel(level) {
   index = level - 1; // tiap level punya 1 soal
   loadGambar();
 }
-
-
 // =============================
 // POPUP
 // =============================

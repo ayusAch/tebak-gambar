@@ -3,43 +3,43 @@ const data = [
   {
     gambar: "images/quis1.png",
     jawaban: "sate padang",
-    funfact: "Sate Padang berasal dari Padang, Sumatera Barat, terkenal dengan kuah kental berwarna coklat yang kaya rempah seperti kunyit, jahe, dan serai. Sate ini menggunakan daging sapi atau lidah sapi yang direbus lama agar empuk, lalu disiram kuah khas yang memberi rasa pedas gurih yang unik."
+    funfact: "Sate Padang berasal dari Padang, Sumatera Barat, terkenal dengan kuah kental berwarna coklat yang kaya rempah. Sate ini menggunakan daging sapi yang disiram kuah khas yang memberi rasa pedas gurih yang unik."
   },
   { gambar: "images/quis2.png",
     jawaban: "kuda lumping",
-    funfact: "Kuda Lumping adalah tari tradisional Jawa yang menampilkan penari menunggang kuda anyaman bambu. Pertunjukan ini sering disertai atraksi trance di mana penari seolah berada di luar kesadaran, menggambarkan kekuatan magis dan spiritual dalam budaya Jawa."
+    funfact: "Kuda Lumping adalah tari tradisional Jawa yang menampilkan penari menunggang kuda anyaman bambu. Pertunjukan ini menggambarkan kekuatan magis dan spiritual dalam budaya Jawa."
   },
   { gambar: "images/quis3.png",
     jawaban: "jalangkung",
-    funfact: "Jalangkung adalah permainan tradisional Indonesia untuk berkomunikasi dengan roh. Permainan ini biasanya menggunakan boneka sederhana dari batok kelapa atau kayu dengan tulisan mantra tertentu. Aktivitas ini dulunya dilakukan anak-anak sebagai hiburan, meski memiliki unsur mistis yang kuat."
+    funfact: "Jalangkung adalah permainan tradisional Indonesia untuk berkomunikasi dengan roh. Permainan ini biasanya menggunakan boneka sederhana dari batok kelapa atau kayu dengan tulisan mantra tertentu."
   },
   { gambar: "images/quis4.png",
     jawaban: "kopi tubruk",
-    funfact: "Kopi Tubruk adalah kopi tradisional Indonesia yang dibuat dengan menuangkan air mendidih langsung ke bubuk kopi, menghasilkan rasa kuat dan aroma pekat. Minuman ini populer di Jawa dan Bali, dan sering dinikmati tanpa disaring sehingga ampasnya tetap berada di dasar gelas."
+    funfact: "Kopi Tubruk adalah kopi tradisional Indonesia yang memiliki rasa kuat dan aroma pekat. Minuman ini sering dinikmati tanpa disaring sehingga ampasnya tetap berada di dasar gelas."
   },
   { gambar: "images/quis5.png",
     jawaban: "kerak telur",
-    funfact: "Kerak Telur adalah jajanan khas Betawi yang dibuat dari campuran beras ketan, telur bebek, kelapa parut sangrai, serta bumbu khas seperti ebi dan bawang goreng. Hidangan ini dimasak tanpa minyak dan memiliki aroma gurih smoky yang menjadi ciri khasnya, terutama saat Festival Jakarta Fair."
+    funfact: "Kerak Telur adalah jajanan khas Betawi yang dibuat dari campuran beras ketan, telur bebek, dan kelapa parut. Hidangan ini dimasak tanpa minyak dan memiliki aroma gurih yang menjadi ciri khasnya."
   },
   { gambar: "images/quis6.png",
     jawaban: "harimau sumatra",
-    funfact: "Harimau Sumatra adalah subspesies harimau yang hanya hidup di Pulau Sumatera dan merupakan yang terkecil di antara harimau lain di dunia. Mereka kini terancam punah akibat perburuan dan kehilangan habitat, sehingga termasuk hewan yang dilindungi untuk menjaga keberlangsungan ekosistem."
+    funfact: "Harimau Sumatra adalah subspesies harimau yang hanya hidup di Pulau Sumatera dan merupakan yang terkecil di antara harimau lain di dunia. Termasuk hewan yang dilindungi dan terancam punah."
   },
   { gambar: "images/quis7.png",
     jawaban: "pempek kapal selam",
-    funfact: "Pempek Kapal Selam adalah makanan khas Palembang yang berisi telur ayam utuh di dalam adonan ikan dan tepung sagu. Hidangan ini disajikan dengan cuko, saus asam-manis pedas yang dibuat dari gula aren, cabai, dan bawang putih, menghasilkan perpaduan rasa yang sangat khas."
+    funfact: "Pempek Kapal Selam adalah makanan khas Palembang yang berisi telur ayam utuh di dalam adonan ikan dan tepung sagu. Hidangan ini disajikan dengan cuko, saus asam-manis pedas yang sangat khas."
   },
   { gambar: "images/quis8.png",
     jawaban: "mie aceh",
-    funfact: "Mie Aceh adalah hidangan mi pedas khas Aceh yang dimasak dengan bumbu rempah kuat seperti kari, kapulaga, cengkeh, dan kayu manis. Biasanya disajikan dengan daging sapi, ayam, atau seafood, menjadikannya salah satu kuliner Nusantara dengan cita rasa paling kaya dan beraroma kuat."
+    funfact: "Mie Aceh adalah hidangan mie pedas khas Aceh yang dimasak dengan bumbu rempah. Termasuk kuliner Nusantara dengan cita rasa paling kaya dan beraroma kuat."
   },
   { gambar: "images/quis9.png",
     jawaban: "ngaben",
-    funfact: "Ngaben adalah upacara kremasi tradisional Bali untuk menghantarkan roh orang yang meninggal menuju alam selanjutnya. Prosesi ini bukan dianggap kesedihan, melainkan pelepasan penuh sukacita, karena dipercaya membantu roh mencapai kedamaian dan kembali ke asalnya."
+    funfact: "Ngaben adalah upacara adat tradisional Bali untuk menghantarkan roh orang yang meninggal menuju alam selanjutnya. Prosesi ini dipercaya membantu roh mencapai kedamaian dan kembali ke asalnya."
   },
   { gambar: "images/quis10.png",
     jawaban: "tari piring",
-    funfact: "Tari Piring berasal dari Minangkabau, Sumatera Barat, di mana penari menari dengan piring di kedua tangan sambil melakukan gerakan cepat dan lincah. Tarian ini awalnya merupakan bentuk syukur masyarakat atas hasil panen dan kini menjadi salah satu ikon budaya Minang yang mendunia."
+    funfact: "Tari Piring berasal dari Minangkabau, Sumatera Barat, di mana penari menari dengan piring di kedua tangan. Tarian ini merupakan bentuk syukur masyarakat atas panen hasil bumi."
   }
 ];
 

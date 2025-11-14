@@ -67,7 +67,7 @@ function loadGambar() {
   document.getElementById("jawaban").value = "";
 
   // Update level info dan nyawa
-  document.getElementById("level-info").textContent = `Level ${Math.floor(index / 2) + 1}`;
+  document.getElementById("level-info").textContent = `Level ${index + 1}`;
   document.getElementById("nyawa").textContent = "❤️".repeat(nyawa); 
 }
 
@@ -129,18 +129,20 @@ function tampilFunfact() {
 // LANJUT KE SOAL BERIKUTNYA
 // =============================
 function lanjutSoal() {
-  const totalPerLevel = 2; // jumlah soal per level
-  const currentLevel = Math.floor(index / totalPerLevel) + 1;
-  index++;
+  // const totalPerLevel = index + 1; // jumlah soal per level
+  const currentLevel = index + 1;
+  bukaLevelBerikutnya(currentLevel);
+  showPopup("selesai");
+  // index++;
 
-  // Cek apakah masih ada soal di level ini
-  if (index < currentLevel * totalPerLevel && index < data.length) {
-    showScreen("funfact", "game");
-    loadGambar();
-  } else {
-    bukaLevelBerikutnya(currentLevel);
-    showPopup("selesai");
-  }
+  // // Cek apakah masih ada soal di level ini
+  // if (index < currentLevel * totalPerLevel && index < data.length) {
+  //   showScreen("funfact", "game");
+  //   loadGambar();
+  // } else {
+  //   bukaLevelBerikutnya(currentLevel);
+  //   showPopup("selesai");
+  // }
 }
 
 
@@ -149,7 +151,7 @@ function lanjutSoal() {
 // =============================
 function bukaLevelBerikutnya(currentLevel) {
   const nextLevel = currentLevel + 1;
-  if (nextLevel > maxLevelUnlocked && nextLevel <= 5) {
+  if (nextLevel > maxLevelUnlocked && nextLevel <= 10) {
     maxLevelUnlocked = nextLevel;
     localStorage.setItem("maxLevelUnlocked", maxLevelUnlocked);
   }
@@ -184,7 +186,7 @@ function pilihLevel(level) {
 
   console.log("Level dipilih:", level);
   showScreen("level-select", "game");
-  index = (level - 1) * 2; // tiap level punya 2 soal (contoh)
+  index = level - 1; // tiap level punya 1 soal
   loadGambar();
 }
 

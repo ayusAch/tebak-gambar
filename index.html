@@ -34,23 +34,18 @@
 
     <h1>Pilih Level Kamu!</h1>
     <div class="level-list">
-      <!-- Level bisa kamu ubah jumlah dan tampilannya -->
-      <div class="level-item" onclick="pilihLevel(1)">
-        <span class="stars">⭐☆☆☆☆</span>
-      </div>
-      <div class="level-item" onclick="pilihLevel(2)">
-        <span class="stars">⭐⭐☆☆☆</span>
-      </div>
-      <div class="level-item" onclick="pilihLevel(3)">
-        <span class="stars">⭐⭐⭐☆☆</span>
-      </div>
-      <div class="level-item" onclick="pilihLevel(4)">
-        <span class="stars">⭐⭐⭐⭐☆</span>
-      </div>
-      <div class="level-item" onclick="pilihLevel(5)">
-        <span class="stars">⭐⭐⭐⭐⭐</span>
-      </div>
+      <div class="level-item" onclick="pilihLevel(1)"><span class="stars">⭐ Level 1</span></div>
+      <div class="level-item" onclick="pilihLevel(2)"><span class="stars">⭐ Level 2</span></div>
+      <div class="level-item" onclick="pilihLevel(3)"><span class="stars">⭐ Level 3</span></div>
+      <div class="level-item" onclick="pilihLevel(4)"><span class="stars">⭐ Level 4</span></div>
+      <div class="level-item" onclick="pilihLevel(5)"><span class="stars">⭐ Level 5</span></div>
+      <div class="level-item" onclick="pilihLevel(6)"><span class="stars">⭐ Level 6</span></div>
+      <div class="level-item" onclick="pilihLevel(7)"><span class="stars">⭐ Level 7</span></div>
+      <div class="level-item" onclick="pilihLevel(8)"><span class="stars">⭐ Level 8</span></div>
+      <div class="level-item" onclick="pilihLevel(9)"><span class="stars">⭐ Level 9</span></div>
+      <div class="level-item" onclick="pilihLevel(10)"><span class="stars">⭐ Level 10</span></div>
     </div>
+
     <button class="back-btn" onclick="kembaliHome()">⬅ Kembali</button>
     <button class="reset-btn" onclick="resetProgress()">🔁 Reset Progress</button>
   </div>
@@ -58,15 +53,16 @@
 
   <!-- Game Card -->
   <div class="game-card" id="game" style="display:none;">
-      <div class="status-bar">
-        <div id="nyawa">❤️❤️❤️</div>
-        <div id="level-info">Level 1</div>
-      </div>
-      
+    <div class="status-bar">
+      <div id="nyawa">❤️❤️❤️</div>
+      <div id="level-info">Level 1</div>
+    </div>
+
     <img id="gambar" class="gambar" src="" alt="gambar" />
 
     <div class="jawaban-container">
-      <input type="text" id="jawaban" placeholder="Tuliskan jawaban di sini..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      <input type="text" id="jawaban" placeholder="Tuliskan jawaban di sini..." autocomplete="off" autocorrect="off"
+        autocapitalize="off" spellcheck="false" />
       <button id="btnJawab">Jawab</button>
     </div>
 

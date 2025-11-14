@@ -56,12 +56,15 @@ let musicOn = true;
 // TOGGLE MUSIK
 // =============================
 function toggleMusic() {
+  const btn = document.getElementById("music-btn");
   if (musicOn) {
     bgmMenu.pause();
     musicOn = false;
+    btn.textContent = "🔇";
   } else {
     bgmMenu.play();
     musicOn = true;
+    btn.textContent = "🔊";
   }
 }
 // =============================

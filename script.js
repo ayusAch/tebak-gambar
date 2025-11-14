@@ -3,43 +3,53 @@ const data = [
   {
     gambar: "images/quis1.png",
     jawaban: "sate padang",
-    funfact: "Sate Padang berasal dari Padang, Sumatera Barat, terkenal dengan kuah kental berwarna coklat yang kaya rempah. Sate ini menggunakan daging sapi yang disiram kuah khas yang memberi rasa pedas gurih yang unik."
+    funfact: "Sate Padang berasal dari Padang, Sumatera Barat, terkenal dengan kuah kental berwarna coklat yang kaya rempah. Sate ini menggunakan daging sapi yang disiram kuah khas yang memberi rasa pedas gurih yang unik.",
+    clue: "Khas Sumatera Barat"
   },
   { gambar: "images/quis2.png",
     jawaban: "kuda lumping",
-    funfact: "Kuda Lumping adalah tari tradisional Jawa yang menampilkan penari menunggang kuda anyaman bambu. Pertunjukan ini menggambarkan kekuatan magis dan spiritual dalam budaya Jawa."
+    funfact: "Kuda Lumping adalah tari tradisional Jawa yang menampilkan penari menunggang kuda anyaman bambu. Pertunjukan ini menggambarkan kekuatan magis dan spiritual dalam budaya Jawa.",
+    clue: "Kesenian tradisional"
   },
   { gambar: "images/quis3.png",
     jawaban: "jalangkung",
-    funfact: "Jalangkung adalah permainan tradisional Indonesia untuk berkomunikasi dengan roh. Permainan ini biasanya menggunakan boneka sederhana dari batok kelapa atau kayu dengan tulisan mantra tertentu."
+    funfact: "Jalangkung adalah permainan tradisional Indonesia untuk berkomunikasi dengan roh. Permainan ini biasanya menggunakan boneka sederhana dari batok kelapa atau kayu dengan tulisan mantra tertentu.",
+    clue: "Mistis"
   },
   { gambar: "images/quis4.png",
     jawaban: "kopi tubruk",
-    funfact: "Kopi Tubruk adalah kopi tradisional Indonesia yang memiliki rasa kuat dan aroma pekat. Minuman ini sering dinikmati tanpa disaring sehingga ampasnya tetap berada di dasar gelas."
+    funfact: "Kopi Tubruk adalah kopi tradisional Indonesia yang memiliki rasa kuat dan aroma pekat. Minuman ini sering dinikmati tanpa disaring sehingga ampasnya tetap berada di dasar gelas.",
+    clue: "Tanpa disaring"
   },
   { gambar: "images/quis5.png",
     jawaban: "kerak telur",
-    funfact: "Kerak Telur adalah jajanan khas Betawi yang dibuat dari campuran beras ketan, telur bebek, dan kelapa parut. Hidangan ini dimasak tanpa minyak dan memiliki aroma gurih yang menjadi ciri khasnya."
+    funfact: "Kerak Telur adalah jajanan khas Betawi yang dibuat dari campuran beras ketan, telur bebek, dan kelapa parut. Hidangan ini dimasak tanpa minyak dan memiliki aroma gurih yang menjadi ciri khasnya.",
+    clue: "Khas betawi"
   },
   { gambar: "images/quis6.png",
     jawaban: "harimau sumatra",
-    funfact: "Harimau Sumatra adalah subspesies harimau yang hanya hidup di Pulau Sumatera dan merupakan yang terkecil di antara harimau lain di dunia. Termasuk hewan yang dilindungi dan terancam punah."
+    funfact: "Harimau Sumatra adalah subspesies harimau yang hanya hidup di Pulau Sumatera dan merupakan yang terkecil di antara harimau lain di dunia. Termasuk hewan yang dilindungi dan terancam punah.",
+    clue: "Predator endemik"
   },
   { gambar: "images/quis7.png",
     jawaban: "pempek kapal selam",
-    funfact: "Pempek Kapal Selam adalah makanan khas Palembang yang berisi telur ayam utuh di dalam adonan ikan dan tepung sagu. Hidangan ini disajikan dengan cuko, saus asam-manis pedas yang sangat khas."
+    funfact: "Pempek Kapal Selam adalah makanan khas Palembang yang berisi telur ayam utuh di dalam adonan ikan dan tepung sagu. Hidangan ini disajikan dengan cuko, saus asam-manis pedas yang sangat khas.",
+    clue: "Khas Palembang"
   },
   { gambar: "images/quis8.png",
     jawaban: "mie aceh",
-    funfact: "Mie Aceh adalah hidangan mie pedas khas Aceh yang dimasak dengan bumbu rempah. Termasuk kuliner Nusantara dengan cita rasa paling kaya dan beraroma kuat."
+    funfact: "Mie Aceh adalah hidangan mie pedas khas Aceh yang dimasak dengan bumbu rempah. Termasuk kuliner Nusantara dengan cita rasa paling kaya dan beraroma kuat.",
+    clue: "Khas Serambi mekkah"
   },
   { gambar: "images/quis9.png",
     jawaban: "ngaben",
-    funfact: "Ngaben adalah upacara adat tradisional Bali untuk menghantarkan roh orang yang meninggal menuju alam selanjutnya. Prosesi ini dipercaya membantu roh mencapai kedamaian dan kembali ke asalnya."
+    funfact: "Ngaben adalah upacara adat tradisional Bali untuk menghantarkan roh orang yang meninggal menuju alam selanjutnya. Prosesi ini dipercaya membantu roh mencapai kedamaian dan kembali ke asalnya.",
+    clue: "Upacara adat"
   },
   { gambar: "images/quis10.png",
     jawaban: "tari piring",
-    funfact: "Tari Piring berasal dari Minangkabau, Sumatera Barat, di mana penari menari dengan piring di kedua tangan. Tarian ini merupakan bentuk syukur masyarakat atas panen hasil bumi."
+    funfact: "Tari Piring berasal dari Minangkabau, Sumatera Barat, di mana penari menari dengan piring di kedua tangan. Tarian ini merupakan bentuk syukur masyarakat atas panen hasil bumi.",
+    clue: "Kesenian daerah"
   }
 ];
 
@@ -122,6 +132,27 @@ function mulaiGame() {
 function kembaliHome() {
   location.reload();
 }
+function Petunjuk() {
+  const clueText = data[index].clue;
+
+  // Isi teks popup
+  document.getElementById("popup-text").textContent = "";
+
+  // Isi tombol + isi clue
+  document.getElementById("popup-buttons").innerHTML = `
+    <p style="font-size: 18px; margin-bottom: 15px;">${clueText}</p>
+    <button onclick="tutupPopup()">Tutup</button>
+  `;
+
+  // Tampilkan popup
+  document.getElementById("popup").style.display = "flex";
+}
+
+function tutupPopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+
 
 // =============================
 // CEK JAWABAN

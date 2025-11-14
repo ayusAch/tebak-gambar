@@ -360,7 +360,7 @@ button:hover {
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 0px;
   padding: 0 10px;
   box-sizing: border-box;
 }
@@ -408,7 +408,7 @@ button:hover {
   max-width: 500px;                 /* maksimal lebar card */
   aspect-ratio: 854 / 821;          /* sesuai dimensi asset */
   background-image: url('images/funfact.png');
-  background-size: contain;          /* seluruh gambar terlihat */
+  background-size: cover;          /* seluruh gambar terlihat */
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 20px;

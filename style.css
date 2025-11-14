@@ -10,12 +10,13 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
+  overflow: hidden;
 
   /* Gambar background */
   background-image: url('images/background.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
   position: relative;
 }
 
@@ -114,6 +115,8 @@ body::before {
   cursor: pointer;
   transition: transform 0.25s ease, filter 0.25s ease;
   filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.4));
+
+  animation: fadeIn 0.8s ease;
 }
 
 .menu-btn:hover {

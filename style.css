@@ -381,6 +381,89 @@ button:hover {
   letter-spacing: 3px;
 }
 
+/* Container tengah */
+#funfact {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Card dengan gambar tanpa overlay */
+.funfact-card {
+  width: 90%;
+  max-width: 500px;                 /* maksimal lebar card */
+  aspect-ratio: 854 / 821;          /* sesuai dimensi asset */
+  background-image: url('images/funfact.png');
+  background-size: contain;          /* seluruh gambar terlihat */
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 20px;
+  padding: 30px 20px;               /* beri jarak teks dari tepi gambar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  color: #000;                       /* teks hitam */
+}
+
+/* Teks & tombol berada di atas gambar */
+.funfact-card h1,
+.funfact-card p,
+.funfact-card button {
+  margin: 10px 0;
+}
+
+/* Teks Funfact */
+#funfact-text {
+  font-size: 1.0rem;
+  line-height: 1.4;
+  max-width: 75%;
+  word-wrap: break-word;
+  text-align: justify;
+}
+
+/* Tombol */
+.back-btn {
+  background-color: #222;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s;
+}
+
+.back-btn:hover {
+  background-color: #444;
+}
+
+/* Responsif Mobile */
+@media (max-width: 480px) {
+  #funfact-text {
+    font-size: 1rem;
+  }
+
+  .funfact-card {
+    padding: 20px 15px;
+  }
+
+  .back-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
 /* Responsif */
 @media (max-width: 600px) {
   .level-item {

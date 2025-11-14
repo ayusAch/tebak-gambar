@@ -47,6 +47,9 @@ let index = 0;
 let nyawa = 3;
 let maxLevelUnlocked = parseInt(localStorage.getItem("maxLevelUnlocked")) || 1;
 const bgmMenu = document.getElementById("bgmMenu");
+const sfxAngklung = document.getElementById("sfxAngklung");
+const sfxKendang = document.getElementById("sfxKendang");
+const sfxSuling = document.getElementById("sfxSuling");
 let musicOn = true;
 
 // =============================
@@ -139,6 +142,8 @@ function cekJawaban() {
     if (nyawa === 0) {
       showPopup("gameover");
     } else {
+      sfxKendang.currentTime = 0;
+      sfxKendang.play();
       showPopup("salah");
     }
   }
@@ -149,6 +154,11 @@ function cekJawaban() {
 function tampilFunfact() {
   const fact = data[index].funfact || "Tidak ada fakta menarik untuk soal ini.";
   document.getElementById("funfact-text").textContent = fact;
+
+  //sfx angklung
+  sfxAngklung.currentTime = 0;
+  sfxAngklung.play();
+
   showScreen("game", "funfact");
 }
 
@@ -160,9 +170,11 @@ function lanjutSoal() {
   const currentLevel = index + 1;
   bukaLevelBerikutnya(currentLevel);
   showPopup("selesai");
+  sfxSuling.currentTime = 0;
+  sfxSuling.play();
   // index++;
 
-  // // Cek apakah masih ada soal di level ini
+  // // Ceking masih ada level apa nggak
   // if (index < currentLevel * totalPerLevel && index < data.length) {
   //   showScreen("funfact", "game");
   //   loadGambar();
@@ -297,7 +309,6 @@ function resetProgress() {
     alert("Progress berhasil di-reset! Semua level terkunci kecuali Level 1.");
   }
 }
-
 function animateLevelButtons() {
   const backBtn = document.querySelector(".level-select .back-btn");
   const resetBtn = document.querySelector(".level-select .reset-btn");
@@ -307,7 +318,7 @@ function animateLevelButtons() {
   resetBtn.style.opacity = "0";
 
   // Hitung waktu total animasi level-item (terakhir = 1s)
-  const totalDelay = 2000; // dalam ms (1.2 detik)
+  const totalDelay = 3000; 
 
   setTimeout(() => {
     backBtn.style.transition = "opacity 0.5s ease, transform 0.3s ease";

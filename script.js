@@ -172,7 +172,13 @@ function cekJawaban() {
   } else {
     nyawa--;
     document.getElementById("nyawa").textContent = "❤️".repeat(nyawa);
-
+    if (nyawa === 1) {
+      
+      sfxKendang.currentTime = 0;
+      sfxKendang.play();
+      showPopup("warning");
+      return; 
+    }
     if (nyawa === 0) {
       showPopup("gameover");
     } else {
@@ -224,6 +230,7 @@ function lanjutSoal() {
 // =============================
 function bukaLevelBerikutnya(currentLevel) {
   const nextLevel = currentLevel + 1;
+  //buka level
   if (nextLevel > maxLevelUnlocked && nextLevel <= 10) {
     maxLevelUnlocked = nextLevel;
     localStorage.setItem("maxLevelUnlocked", maxLevelUnlocked);
@@ -291,6 +298,11 @@ function showPopup(status) {
     popupButtons.innerHTML = `
     <button onclick="kembaliLevelSelect()">Kembali ke Level</button>
   `;
+  } else if (status === "warning") {
+    popupText.innerHTML = "⚠️ Hati-hati! Kesempatanmu tinggal 1 😢";
+    popupButtons.innerHTML = `
+      <button onclick="closePopup()">Lanjutkan</button>
+    `;
   }
 
 }
@@ -305,7 +317,6 @@ function ulangi() {
 function ulangGame() {
   closePopup();
   nyawa = 3;
-  index = 0;
   loadGambar();
 }
 // =============================

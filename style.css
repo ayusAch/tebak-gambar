@@ -435,6 +435,30 @@ button:hover {
   word-wrap: break-word;
   text-align: justify;
 }
+/* ANIMASI FUNFACT MASUK */
+
+.funfact-card {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  animation: funfactShow 0.6s ease forwards;
+}
+
+@keyframes funfactShow {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(0) scale(1.02);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 
 /* Tombol */
 .back-btn {

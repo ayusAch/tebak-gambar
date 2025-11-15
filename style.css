@@ -729,3 +729,85 @@ button:hover {
     padding: 9px 18px;
   }
 }
+
+/* WIN SCREEN */
+.win-box {
+  background: rgba(255, 255, 255, 0.9);
+  color: #222;
+  padding: 25px 35px;
+  border-radius: 15px;
+  text-align: center;
+  z-index: 10;
+  animation: popWin 0.7s ease;
+}
+
+@keyframes popWin {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.win-title {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+/* FIREWORKS ANIMATION */
+.fireworks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: transparent;
+  z-index: 5;
+}
+
+.fireworks::before,
+.fireworks::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: transparent;
+  box-shadow:
+    0 0 #ff4d4d,
+    40px -20px #ffd700,
+    -30px 10px #4dff4d,
+    20px 40px #4da6ff,
+    -40px -30px #ff66cc,
+    10px -50px #ff944d;
+  animation: explode 1.5s infinite ease-out;
+}
+
+.fireworks::after {
+  animation-delay: 0.7s;
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(0.2) rotate(0);
+    opacity: 1;
+  }
+
+  80% {
+    transform: scale(1.4) rotate(180deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.6) rotate(260deg);
+    opacity: 0;
+  }
+}

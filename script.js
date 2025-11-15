@@ -206,22 +206,19 @@ function tampilFunfact() {
 // LANJUT KE SOAL BERIKUTNYA
 // =============================
 function lanjutSoal() {
-  // const totalPerLevel = index + 1; // jumlah soal per level
   const currentLevel = index + 1;
+
+  if (currentLevel === 10) {
+    showWinScreen();
+    return;
+    
+  }
   bukaLevelBerikutnya(currentLevel);
   showPopup("selesai");
+
   sfxSuling.currentTime = 0;
   sfxSuling.play();
-  // index++;
-
-  // // Ceking masih ada level apa nggak
-  // if (index < currentLevel * totalPerLevel && index < data.length) {
-  //   showScreen("funfact", "game");
-  //   loadGambar();
-  // } else {
-  //   bukaLevelBerikutnya(currentLevel);
-  //   showPopup("selesai");
-  // }
+  
 }
 
 
@@ -306,6 +303,17 @@ function showPopup(status) {
   }
 
 }
+function showWinScreen() {
+  const win = document.getElementById("win-screen");
+  win.style.display = "flex";
+
+  // stop BGM
+  bgmMenu.pause();
+
+  // kalau mau tambahkan SFX kembang api:
+  // sfxAngklung.play();
+}
+
 function closePopup() {
   document.getElementById("popup").style.display = "none";
 }

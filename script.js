@@ -162,9 +162,6 @@ function Petunjuk() {
 function tutupPopup() {
   document.getElementById("popup").style.display = "none";
 }
-
-
-
 // =============================
 // CEK JAWABAN
 // =============================
@@ -216,7 +213,6 @@ function tampilFunfact() {
 
   showScreen("game", "funfact");
 }
-
 // =============================
 // LANJUT KE SOAL BERIKUTNYA
 // =============================
@@ -235,8 +231,6 @@ function lanjutSoal() {
   sfxSuling.play();
 
 }
-
-
 // =============================
 // FUNGSI BUKA LEVEL BERIKUTNYA
 // =============================
@@ -262,7 +256,6 @@ document.getElementById("btnJawab").addEventListener("click", cekJawaban);
 document.getElementById("jawaban").addEventListener("keypress", function (e) {
   if (e.key === 'Enter') cekJawaban();
 });
-
 // =============================
 // PILIH LEVEL
 // =============================

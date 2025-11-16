@@ -65,7 +65,7 @@ body::before {
   transform: scale(1.1);
 }
 
-/* === MAIN MENU TANPA CARD === */
+/* MAIN MENU TANPA CARD */
 .main-menu {
   width: 100%;
   min-height: 100vh;
@@ -405,14 +405,14 @@ button:hover {
 /* Card dengan gambar tanpa overlay */
 .funfact-card {
   width: 90%;
-  max-width: 500px;                 /* maksimal lebar card */
-  aspect-ratio: 854 / 821;          /* sesuai dimensi asset */
+  max-width: 500px;                 
+  aspect-ratio: 854 / 821;          
   background-image: url('images/funfact.png');
-  background-size: cover;          /* seluruh gambar terlihat */
+  background-size: cover;          
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 20px;
-  padding: 30px 20px;               /* beri jarak teks dari tepi gambar */
+  padding: 30px 20px;               
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -420,7 +420,7 @@ button:hover {
   text-align: center;
   position: relative;
   box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  color: #000;                       /* teks hitam */
+  color: #000;                       
 }
 
 /* Teks & tombol berada di atas gambar */
@@ -584,7 +584,7 @@ button:hover {
 
 
 
-/* === Layout Input + Tombol Jawab === */
+/* Layout Input + Tombol Jawab */
 .jawaban-container {
   display: flex;
   justify-content: center;
@@ -625,7 +625,7 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* Responsif: di layar HP sempit (kurang dari 380px) ubah jadi vertikal */
+/* Responsif: */
 @media (max-width: 300px) {
   .jawaban-container {
     flex-wrap: nowrap;
@@ -669,9 +669,7 @@ button:hover {
   color: #fff;
 }
 
-/* ==========================
-   TOMBOL KEMBALI & RESET
-   ========================== */
+/* TOMBOL KEMBALI & RESET */
 .level-select .back-btn,
 .level-select .reset-btn {
   background: linear-gradient(135deg, #ff7b7b, #ff5252);

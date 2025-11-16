@@ -178,23 +178,3 @@ Langkah upload:
 
 ---
 
-## 11. Presentasi untuk Client
-Hal-hal yang bisa dijelaskan saat presentasi:
-- Game mobile-friendly
-- Bisa ditambah level tanpa ubah HTML
-- Sistem pagination membuat game scalable
-- Ada musik, SFX, animasi
-- Funfact membuat game edukatif
-- Semua progress tersimpan otomatis
-- Mudah dikembangkan dan di-custom sesuai keinginan client
-
----
-
-## 12. Closing
-Dokumentasi ini menjelaskan cara kerja game, cara menambah level, alur logika, audio, animasi, dan struktur teknis. Dengan ini, client dapat:
-- Mempresentasikan game dengan percaya diri
-- Mengembangkan game lebih lanjut
-- Mengerti cara kerja sistem level otomatis
-
-Jika ingin dibuatkan versi PDF, versi desain, atau versi presentasi PowerPoint, saya bisa siapkan juga.
-

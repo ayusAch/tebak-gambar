@@ -28,7 +28,7 @@ body::before {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.45);
-  
+
   z-index: -1;
 }
 
@@ -37,7 +37,7 @@ body::before {
   position: fixed;
   top: 15px;
   right: 15px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   border: none;
   padding: 12px;
   border-radius: 50%;
@@ -61,7 +61,7 @@ body::before {
 }
 
 #music-btn:hover {
-  background: rgba(255,255,255,0.4);
+  background: rgba(255, 255, 255, 0.4);
   transform: scale(1.1);
 }
 
@@ -91,7 +91,7 @@ body::before {
   object-fit: contain;
   margin-bottom: 10px;
   transform: translateY(-30px);
-  
+
   animation: fadeInDown 1s ease;
 }
 
@@ -141,7 +141,8 @@ body::before {
 }
 
 /* Main Menu*/
-.menu, .game-card {
+.menu,
+.game-card {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
@@ -158,8 +159,15 @@ body::before {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* HEADINGS */
@@ -175,15 +183,22 @@ h1 {
   max-width: 300px;
   border-radius: 15px;
   margin-bottom: 15px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
   object-fit: cover;
   animation: pop 0.5s ease;
   max-height: 250px;
 }
 
 @keyframes pop {
-  0% { transform: scale(0.8); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* INPUT */
@@ -232,7 +247,7 @@ button:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -252,8 +267,13 @@ button:hover {
 }
 
 @keyframes zoom {
-  0% { transform: scale(0.7); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(0.7);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .popup button {
@@ -281,7 +301,8 @@ button:hover {
     max-height: 200px;
   }
 
-  input, button {
+  input,
+  button {
     font-size: 14px;
     padding: 10px;
   }
@@ -323,6 +344,7 @@ button:hover {
   background: rgb(95, 17, 17);
   transform: scale(1.05);
 }
+
 /* Responsif untuk HP */
 @media (max-width: 600px) {
   body {
@@ -339,6 +361,7 @@ button:hover {
     padding: 20px;
   }
 }
+
 /* Level Select */
 .level-select {
   background: rgba(255, 255, 255, 0.15);
@@ -405,22 +428,22 @@ button:hover {
 /* Card dengan gambar tanpa overlay */
 .funfact-card {
   width: 90%;
-  max-width: 500px;                 
-  aspect-ratio: 854 / 821;          
+  max-width: 500px;
+  aspect-ratio: 854 / 821;
   background-image: url('images/funfact.png');
-  background-size: cover;          
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 20px;
-  padding: 30px 20px;               
+  padding: 30px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   position: relative;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  color: #000;                       
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  color: #000;
 }
 
 /* Teks & tombol berada di atas gambar */
@@ -438,6 +461,7 @@ button:hover {
   word-wrap: break-word;
   text-align: justify;
 }
+
 /* ANIMASI FUNFACT MASUK */
 
 .funfact-card {
@@ -505,11 +529,13 @@ button:hover {
   .stars {
     font-size: 20px;
   }
-  .level-select{
+
+  .level-select {
     width: 95%;
     padding: 30px;
   }
 }
+
 /* ANIMASI MASUK LEVEL SELECT */
 @keyframes slideUpFade {
   0% {
@@ -562,6 +588,7 @@ button:hover {
 .level-item:nth-child(5) {
   animation-delay: 1s;
 }
+
 .level-item:nth-child(6) {
   animation-delay: 1.2s;
 }
@@ -637,6 +664,7 @@ button:hover {
     font-size: 14px;
     padding: 9px;
   }
+
   .jawaban-container button {
     font-size: 14px;
     padding: 9px 12px;
@@ -698,6 +726,7 @@ button:hover {
   background: linear-gradient(135deg, #ffcc33, #e0a800);
   color: #222;
 }
+
 .level-select .back-btn {
   animation-delay: 2.2s;
 }
@@ -705,6 +734,7 @@ button:hover {
 .level-select .reset-btn {
   animation-delay: 2.4s;
 }
+
 /* Animasi masuk tombol */
 @keyframes fadeInButton {
   from {
@@ -809,6 +839,7 @@ button:hover {
     opacity: 0;
   }
 }
+
 /* CONFETTI RAIN */
 #confetti-container {
   position: absolute;

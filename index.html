@@ -13,26 +13,26 @@
   <!-- Audio Menu -->
   <audio id="bgmMenu" loop>
     <source src="audio/gamelan.mp3" type="audio/mp3">
-  </audio>  
+  </audio>
   <audio id="sfxAngklung">
     <source src="audio/angklung.mp3" type="audio/mp3">
-  </audio>  
+  </audio>
   <audio id="sfxKendang">
     <source src="audio/kendang.mp3" type="audio/mp3">
-  </audio>  
+  </audio>
   <audio id="sfxSuling">
     <source src="audio/suling.mp3" type="audio/mp3">
   </audio>
   <audio id="sfxWin">
     <source src="audio/win.mp3" type="audio/mp3">
-  </audio>  
+  </audio>
   <audio id="sfxGameOver">
     <source src="audio/gameover.mp3" type="audio/mp3">
   </audio>
 
   <!-- Tombol Musik -->
   <button id="music-btn" onclick="toggleMusic()">🔊</button>
-  
+
   <!-- Main Menu -->
   <div class="main-menu" id="menu">
     <div class="menu-grid">
@@ -92,25 +92,25 @@
     </div>
   </div>
 
-<!-- Halaman Funfact -->
-<div class="funfact-screen" id="funfact" style="display:none;" data-display="flex">
-  <div class="funfact-card">
-    <h1>Fakta Menarik!</h1>
-    <p id="funfact-text"></p>
-    <button class="back-btn" onclick="lanjutSoal()">Lanjut</button>
+  <!-- Halaman Funfact -->
+  <div class="funfact-screen" id="funfact" style="display:none;" data-display="flex">
+    <div class="funfact-card">
+      <h1>Fakta Menarik!</h1>
+      <p id="funfact-text"></p>
+      <button class="back-btn" onclick="lanjutSoal()">Lanjut</button>
+    </div>
   </div>
-</div>
 
-<!-- WIN SCREEN -->
-<div id="win-screen" class="popup" style="display:none;">
-  <div id="confetti-container"></div>
+  <!-- WIN SCREEN -->
+  <div id="win-screen" class="popup" style="display:none;">
+    <div id="confetti-container"></div>
 
-  <div class="win-box">
-    <h1 class="win-title">🎉 SELAMAT! 🎉</h1>
-    <p>Kamu sudah menyelesaikan semua level!</p>
-    <button onclick="kembaliHome()" class="back-btn">Kembali ke Menu</button>
+    <div class="win-box">
+      <h1 class="win-title">🎉 SELAMAT! 🎉</h1>
+      <p>Kamu sudah menyelesaikan semua level!</p>
+      <button onclick="kembaliHome()" class="back-btn">Kembali ke Menu</button>
+    </div>
   </div>
-</div>
 
   <!-- Script -->
   <script src="script.js"></script>

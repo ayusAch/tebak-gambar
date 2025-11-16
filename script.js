@@ -423,4 +423,3 @@ function generateConfetti() {
     container.appendChild(confetti);
   }
 }
-

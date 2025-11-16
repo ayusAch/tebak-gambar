@@ -309,6 +309,8 @@ function showWinScreen() {
 
   // stop BGM
   bgmMenu.pause();
+  
+  generateConfetti();
 
   // kalau mau tambahkan SFX kembang api:
   // sfxAngklung.play();
@@ -384,3 +386,32 @@ function animateLevelButtons() {
     resetBtn.style.transform = "translateY(0)";
   }, totalDelay);
 }
+function generateConfetti() {
+  const container = document.getElementById("confetti-container");
+  container.innerHTML = ""; // reset
+
+  const colors = ["#ff3838", "#ff9f1a", "#fffa65", "#32ff7e", "#7efff5", "#18dcff", "#7d5fff", "#ff4d4d"];
+
+  for (let i = 0; i < 80; i++) {
+    const confetti = document.createElement("div");
+    confetti.classList.add("confetti");
+
+    // warna random
+    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+    // posisi random
+    confetti.style.left = Math.random() * 100 + "vw";
+
+    // delay animasi random
+    confetti.style.animationDuration = 2 + Math.random() * 3 + "s";
+    confetti.style.animationDelay = Math.random() * 2 + "s";
+
+    // ukuran berbeda-beda
+    const size = Math.random() * 8 + 6;
+    confetti.style.width = size + "px";
+    confetti.style.height = size * 1.4 + "px";
+
+    container.appendChild(confetti);
+  }
+}
+

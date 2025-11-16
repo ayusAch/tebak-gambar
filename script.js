@@ -343,8 +343,10 @@ function ulangGame() {
 // =============================
 function updateLevelDisplay() {
   const items = document.querySelectorAll(".level-item");
+
   items.forEach((item, i) => {
     const level = i + 1;
+
     if (level <= maxLevelUnlocked) {
       item.style.opacity = "1";
       item.style.pointerEvents = "auto";
@@ -357,13 +359,18 @@ function updateLevelDisplay() {
   });
 }
 
+
 function kembaliLevelSelect() {
   closePopup();
   showScreen("funfact", "level-select");
   updateLevelDisplay();
 }
 
-document.addEventListener("DOMContentLoaded", updateLevelDisplay);
+document.addEventListener("DOMContentLoaded", () => {
+  generateLevelButtons();
+  updateLevelDisplay();
+});
+
 
 function resetProgress() {
   if (confirm("Apakah kamu yakin ingin mengulang dari awal?\nSemua progress level akan dihapus.")) {
@@ -421,5 +428,32 @@ function generateConfetti() {
     confetti.style.height = size * 1.4 + "px";
 
     container.appendChild(confetti);
+  }
+}
+function generateLevelButtons() {
+  const container = document.getElementById("level-list");
+  container.innerHTML = "";
+
+  for (let i = 1; i <= data.length; i++) {
+    const item = document.createElement("div");
+    item.className = "level-item";
+
+    item.onclick = () => pilihLevel(i);
+
+    // Locked / unlocked
+    if (i <= maxLevelUnlocked) {
+      item.innerHTML = `<span class="stars">⭐ Level ${i}</span>`;
+      item.style.opacity = "1";
+      item.style.pointerEvents = "auto";
+    } else {
+      item.innerHTML = `<span class="stars">🔒 Level ${i}</span>`;
+      item.style.opacity = "0.5";
+      item.style.pointerEvents = "none";
+    }
+
+    // Auto animation delay
+    item.style.animationDelay = (i * 0.2) + "s";
+
+    container.appendChild(item);
   }
 }

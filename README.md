@@ -6,7 +6,7 @@ This document provides a complete, step-by-step explanation of how the Tebak Gam
 ---
 
 ## 1. Project Overview
-The Tebak Gambar Game is a browser-based mobile‑friendly quiz game where players menebak gambar dan menjawab berdasarkan clue. Game ini memiliki:
+Tebak Gambar Game adalah sebuah game sederhana dimana player menebak gambar dan menjawab berdasarkan clue yang diberikan yang berupa gabungan dari beberapa gambar yang akan membentuk suatu pola kalimat atau kata yang berhunbungan dengan kebudayaan Indonesia, yang . Game ini memiliki:
 - Sistem level otomatis
 - Pagination level (10 per halaman)
 - Funfact setiap berhasil menjawab

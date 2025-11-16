@@ -340,28 +340,6 @@ function ulangGame() {
   // loadGambar();
   generateLevelButtons();
 }
-// =============================
-// LOGIC BUKA LEVEL
-// =============================
-function updateLevelDisplay() {
-  const items = document.querySelectorAll(".level-item");
-
-  items.forEach((item, i) => {
-    const level = i + 1;
-
-    if (level <= maxLevelUnlocked) {
-      item.style.opacity = "1";
-      item.style.pointerEvents = "auto";
-      item.innerHTML = `<span class="stars">⭐ Level ${level}</span>`;
-    } else {
-      item.style.opacity = "0.5";
-      item.style.pointerEvents = "none";
-      item.innerHTML = `<span class="stars">🔒 Level ${level}</span>`;
-    }
-  });
-}
-
-
 function kembaliLevelSelect() {
   closePopup();
   showScreen("funfact", "level-select");
@@ -372,8 +350,6 @@ document.addEventListener("DOMContentLoaded", () => {
   generateLevelButtons();
   generateLevelButtons();
 });
-
-
 function resetProgress() {
   if (confirm("Apakah kamu yakin ingin mengulang dari awal?\nSemua progress level akan dihapus.")) {
     localStorage.removeItem("maxLevelUnlocked");

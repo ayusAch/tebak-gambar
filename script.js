@@ -65,6 +65,8 @@ const data = [
 let index = 0;
 let nyawa = 3;
 let maxLevelUnlocked = parseInt(localStorage.getItem("maxLevelUnlocked")) || 1;
+let currentPage = 1;
+const perPage = 10; // 10 level per halaman
 const bgmMenu = document.getElementById("bgmMenu");
 const sfxAngklung = document.getElementById("sfxAngklung");
 const sfxKendang = document.getElementById("sfxKendang");
@@ -94,7 +96,7 @@ function toggleMusic() {
 function showScreen(fromId, toId) {
 
   if (toId === "level-select") {
-    updateLevelDisplay();
+    generateLevelButtons();
     animateLevelButtons();
   }
 
@@ -134,7 +136,7 @@ function mulaiGame() {
     bgmMenu.play();
   }
   showScreen("menu", "level-select");
-  updateLevelDisplay();
+  generateLevelButtons();
 }
 
 // =============================
@@ -219,7 +221,7 @@ function tampilFunfact() {
 function lanjutSoal() {
   const currentLevel = index + 1;
 
-  if (currentLevel === 10) {
+  if (currentLevel === data.length) {
     showWinScreen();
     return;
 
@@ -237,7 +239,7 @@ function lanjutSoal() {
 function bukaLevelBerikutnya(currentLevel) {
   const nextLevel = currentLevel + 1;
   //buka level
-  if (nextLevel > maxLevelUnlocked && nextLevel <= 10) {
+  if (nextLevel > maxLevelUnlocked && nextLevel <= data.length) {
     maxLevelUnlocked = nextLevel;
     localStorage.setItem("maxLevelUnlocked", maxLevelUnlocked);
   }
@@ -336,7 +338,7 @@ function ulangGame() {
   nyawa = 3;
   showScreen("game", "level-select");
   // loadGambar();
-  updateLevelDisplay();
+  generateLevelButtons();
 }
 // =============================
 // LOGIC BUKA LEVEL
@@ -363,12 +365,12 @@ function updateLevelDisplay() {
 function kembaliLevelSelect() {
   closePopup();
   showScreen("funfact", "level-select");
-  updateLevelDisplay();
+  generateLevelButtons();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   generateLevelButtons();
-  updateLevelDisplay();
+  generateLevelButtons();
 });
 
 
@@ -376,7 +378,7 @@ function resetProgress() {
   if (confirm("Apakah kamu yakin ingin mengulang dari awal?\nSemua progress level akan dihapus.")) {
     localStorage.removeItem("maxLevelUnlocked");
     maxLevelUnlocked = 1;
-    updateLevelDisplay();
+    generateLevelButtons();
     alert("Progress berhasil di-reset! Semua level terkunci kecuali Level 1.");
   }
 }
@@ -434,26 +436,36 @@ function generateLevelButtons() {
   const container = document.getElementById("level-list");
   container.innerHTML = "";
 
-  for (let i = 1; i <= data.length; i++) {
+  const totalPages = Math.ceil(data.length / perPage);
+  const start = (currentPage - 1) * perPage + 1;
+  const end = Math.min(currentPage * perPage, data.length);
+
+  for (let i = start; i <= end; i++) {
     const item = document.createElement("div");
     item.className = "level-item";
 
-    item.onclick = () => pilihLevel(i);
-
-    // Locked / unlocked
+    // unlocked / locked tetap memakai logikamu
     if (i <= maxLevelUnlocked) {
-      item.innerHTML = `<span class="stars">⭐ Level ${i}</span>`;
       item.style.opacity = "1";
       item.style.pointerEvents = "auto";
+      item.textContent = "⭐ Level " + i;
+      item.onclick = () => pilihLevel(i);
     } else {
-      item.innerHTML = `<span class="stars">🔒 Level ${i}</span>`;
       item.style.opacity = "0.5";
       item.style.pointerEvents = "none";
+      item.textContent = "🔒 Level " + i;
     }
-
-    // Auto animation delay
-    item.style.animationDelay = (i * 0.2) + "s";
 
     container.appendChild(item);
   }
+
+  updatePaginationUI();
+}
+function updatePaginationUI() {
+  const totalPages = Math.ceil(data.length / perPage);
+
+  document.getElementById("pageInfo").textContent = `${currentPage} / ${totalPages}`;
+
+  document.getElementById("prevPage").disabled = currentPage === 1;
+  document.getElementById("nextPage").disabled = currentPage === totalPages;
 }

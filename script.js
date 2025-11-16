@@ -6,47 +6,56 @@ const data = [
     funfact: "Sate Padang berasal dari Padang, Sumatera Barat, terkenal dengan kuah kental berwarna coklat yang kaya rempah. Sate ini menggunakan daging sapi yang disiram kuah khas yang memberi rasa pedas gurih yang unik.",
     clue: "Khas Sumatera Barat"
   },
-  { gambar: "images/quis2.png",
+  {
+    gambar: "images/quis2.png",
     jawaban: "kuda lumping",
     funfact: "Kuda Lumping adalah tari tradisional Jawa yang menampilkan penari menunggang kuda anyaman bambu. Pertunjukan ini menggambarkan kekuatan magis dan spiritual dalam budaya Jawa.",
     clue: "Kesenian tradisional"
   },
-  { gambar: "images/quis3.png",
+  {
+    gambar: "images/quis3.png",
     jawaban: "jalangkung",
     funfact: "Jalangkung adalah permainan tradisional Indonesia untuk berkomunikasi dengan roh. Permainan ini biasanya menggunakan boneka sederhana dari batok kelapa atau kayu dengan tulisan mantra tertentu.",
     clue: "Mistis"
   },
-  { gambar: "images/quis4.png",
+  {
+    gambar: "images/quis4.png",
     jawaban: "kopi tubruk",
     funfact: "Kopi Tubruk adalah kopi tradisional Indonesia yang memiliki rasa kuat dan aroma pekat. Minuman ini sering dinikmati tanpa disaring sehingga ampasnya tetap berada di dasar gelas.",
     clue: "Tanpa disaring"
   },
-  { gambar: "images/quis5.png",
+  {
+    gambar: "images/quis5.png",
     jawaban: "kerak telur",
     funfact: "Kerak Telur adalah jajanan khas Betawi yang dibuat dari campuran beras ketan, telur bebek, dan kelapa parut. Hidangan ini dimasak tanpa minyak dan memiliki aroma gurih yang menjadi ciri khasnya.",
     clue: "Khas betawi"
   },
-  { gambar: "images/quis6.png",
+  {
+    gambar: "images/quis6.png",
     jawaban: "harimau sumatra",
     funfact: "Harimau Sumatra adalah subspesies harimau yang hanya hidup di Pulau Sumatera dan merupakan yang terkecil di antara harimau lain di dunia. Termasuk hewan yang dilindungi dan terancam punah.",
     clue: "Predator endemik"
   },
-  { gambar: "images/quis7.png",
+  {
+    gambar: "images/quis7.png",
     jawaban: "pempek kapal selam",
     funfact: "Pempek Kapal Selam adalah makanan khas Palembang yang berisi telur ayam utuh di dalam adonan ikan dan tepung sagu. Hidangan ini disajikan dengan cuko, saus asam-manis pedas yang sangat khas.",
     clue: "Khas Palembang"
   },
-  { gambar: "images/quis8.png",
+  {
+    gambar: "images/quis8.png",
     jawaban: "mie aceh",
     funfact: "Mie Aceh adalah hidangan mie pedas khas Aceh yang dimasak dengan bumbu rempah. Termasuk kuliner Nusantara dengan cita rasa paling kaya dan beraroma kuat.",
     clue: "Khas Serambi mekkah"
   },
-  { gambar: "images/quis9.png",
+  {
+    gambar: "images/quis9.png",
     jawaban: "ngaben",
     funfact: "Ngaben adalah upacara adat tradisional Bali untuk menghantarkan roh orang yang meninggal menuju alam selanjutnya. Prosesi ini dipercaya membantu roh mencapai kedamaian dan kembali ke asalnya.",
     clue: "Upacara adat"
   },
-  { gambar: "images/quis10.png",
+  {
+    gambar: "images/quis10.png",
     jawaban: "tari piring",
     funfact: "Tari Piring berasal dari Minangkabau, Sumatera Barat, di mana penari menari dengan piring di kedua tangan. Tarian ini merupakan bentuk syukur masyarakat atas panen hasil bumi.",
     clue: "Kesenian daerah"
@@ -60,6 +69,8 @@ const bgmMenu = document.getElementById("bgmMenu");
 const sfxAngklung = document.getElementById("sfxAngklung");
 const sfxKendang = document.getElementById("sfxKendang");
 const sfxSuling = document.getElementById("sfxSuling");
+const sfxGameOver = document.getElementById("sfxGameOver");
+const sfxWin = document.getElementById("sfxWin");
 let musicOn = true;
 
 // =============================
@@ -112,7 +123,7 @@ function loadGambar() {
 
   // Update level info dan nyawa
   document.getElementById("level-info").textContent = `Level ${index + 1}`;
-  document.getElementById("nyawa").textContent = "❤️".repeat(nyawa); 
+  document.getElementById("nyawa").textContent = "❤️".repeat(nyawa);
 }
 // =============================
 // START GAME
@@ -173,14 +184,18 @@ function cekJawaban() {
     nyawa--;
     document.getElementById("nyawa").textContent = "❤️".repeat(nyawa);
     if (nyawa === 1) {
-      
+
       sfxKendang.currentTime = 0;
       sfxKendang.play();
       showPopup("warning");
-      return; 
+      return;
     }
     if (nyawa === 0) {
+      sfxGameOver.currentTime = 0;
+      sfxGameOver.play();
+
       showPopup("gameover");
+      return;
     } else {
       sfxKendang.currentTime = 0;
       sfxKendang.play();
@@ -211,14 +226,14 @@ function lanjutSoal() {
   if (currentLevel === 10) {
     showWinScreen();
     return;
-    
+
   }
   bukaLevelBerikutnya(currentLevel);
   showPopup("selesai");
 
   sfxSuling.currentTime = 0;
   sfxSuling.play();
-  
+
 }
 
 
@@ -282,13 +297,11 @@ function showPopup(status) {
     popupText.innerHTML = "Jawaban Salah!";
     popupButtons.innerHTML = `
       <button onclick="ulangi()">Ulangi</button>
-      <button onclick="kembaliHome()">Kembali</button>
     `;
   } else if (status === "gameover") {
     popupText.innerHTML = "Game Over! Nyawamu habis 😢";
     popupButtons.innerHTML = `
       <button onclick="ulangGame()">Ulangi Game</button>
-      <button onclick="kembaliHome()">Kembali</button>
     `;
   } else if (status === "selesai") {
     popupText.innerHTML = "Selamat! Kamu menyelesaikan level ini 🎉";
@@ -309,11 +322,12 @@ function showWinScreen() {
 
   // stop BGM
   bgmMenu.pause();
-  
-  generateConfetti();
 
-  // kalau mau tambahkan SFX kembang api:
-  // sfxAngklung.play();
+  //play sfx menang
+  sfxWin.currentTime = 0;
+  sfxWin.play();
+
+  generateConfetti();
 }
 
 function closePopup() {
@@ -327,7 +341,9 @@ function ulangi() {
 function ulangGame() {
   closePopup();
   nyawa = 3;
-  loadGambar();
+  showScreen("game", "level-select");
+  // loadGambar();
+  updateLevelDisplay();
 }
 // =============================
 // LOGIC BUKA LEVEL
@@ -373,7 +389,7 @@ function animateLevelButtons() {
   resetBtn.style.opacity = "0";
 
   // Hitung waktu total animasi level-item (terakhir = 1s)
-  const totalDelay = 3000; 
+  const totalDelay = 3000;
 
   setTimeout(() => {
     backBtn.style.transition = "opacity 0.5s ease, transform 0.3s ease";
